@@ -8,7 +8,13 @@ import (
 type Solver func(string) int
 
 func TestExample(t *testing.T) {
-	cases := []struct {
+	casesP1 := []struct {
+		in   string
+		want int
+	}{
+		{``, 0},
+	}
+	casesP2 := []struct {
 		in   string
 		want int
 	}{
@@ -18,10 +24,10 @@ func TestExample(t *testing.T) {
 	part2 := Dxp2
 	inputFile := "Dx"
 
-	Checker(t, cases, part1)
+	Checker(t, casesP1, part1)
 	Solution(inputFile, part1)
 
-	Checker(t, cases, part2)
+	Checker(t, casesP2, part2)
 	Solution(inputFile, part2)
 }
 
