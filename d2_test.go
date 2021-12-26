@@ -1,12 +1,11 @@
 package aoc21
 
 import (
-	"fmt"
 	"testing"
 )
 
-func TestD2p1(t *testing.T) {
-	cases := []struct {
+func TestD2(t *testing.T) {
+	casesP1 := []struct {
 		in   string
 		want int
 	}{
@@ -17,23 +16,7 @@ up 3
 down 8
 forward 2`, 150},
 	}
-	for _, c := range cases {
-		got := D2p1(c.in)
-		if got != c.want {
-			t.Errorf("solution of (%q) == %d, want %d", c.in, got, c.want)
-		}
-	}
-}
-
-func TestD2p1solution(t *testing.T) {
-	file := "D2"
-	in := Read(file)
-	solution := D2p1(in)
-	fmt.Printf("%s solution: %d\n", file, solution)
-}
-
-func TestD2p2(t *testing.T) {
-	cases := []struct {
+	casesP2 := []struct {
 		in   string
 		want int
 	}{
@@ -44,17 +27,13 @@ up 3
 down 8
 forward 2`, 900},
 	}
-	for _, c := range cases {
-		got := D2p2(c.in)
-		if got != c.want {
-			t.Errorf("solution of (%q) == %d, want %d", c.in, got, c.want)
-		}
-	}
-}
+	part1 := D2p1
+	part2 := D2p2
+	inputFile := "D2"
 
-func TestD2p2solution(t *testing.T) {
-	file := "D2"
-	in := Read(file)
-	solution := D2p2(in)
-	fmt.Printf("%s solution: %d\n", file, solution)
+	Checker(t, casesP1, part1)
+	Solution(inputFile, part1)
+
+	Checker(t, casesP2, part2)
+	Solution(inputFile, part2)
 }
