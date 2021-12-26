@@ -1,6 +1,7 @@
 package aoc21
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"strings"
@@ -9,7 +10,10 @@ import (
 func Read(path string) string {
 	f, err := os.Open(path)
 	if err != nil {
-		panic(err)
+		errorMsg := "error reading file!!"
+		fmt.Println(errorMsg)
+		fmt.Println(err)
+		return errorMsg
 	}
 	defer f.Close()
 	b := new(strings.Builder)
