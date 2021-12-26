@@ -6,8 +6,8 @@ import (
 )
 
 func TestD1p1(t *testing.T) {
-  cases := []struct {
-		in string
+	cases := []struct {
+		in   string
 		want int
 	}{
 		{`199
@@ -30,7 +30,7 @@ func TestD1p1(t *testing.T) {
 }
 
 func TestD1p1solution(t *testing.T) {
-	file := "D1p1"
+	file := "D1"
 	in := Read(file)
 	fmt.Printf("%s solution: %d\n", file, D1p1(in))
 }
