@@ -7,8 +7,8 @@ import (
 
 func D2p1(input string) int {
 	els := strings.Split(input, "\n")
-	x := 0
-	y := 0
+	horizontal := 0
+	depth := 0
 	for _, el := range els {
 		el = strings.TrimSpace(el)
 		lineParts := strings.Split(el, " ")
@@ -18,16 +18,37 @@ func D2p1(input string) int {
 
 		switch {
 		case command == "forward":
-			x += value
+			horizontal += value
 		case command == "down":
-			y += value
+			depth += value
 		case command == "up":
-			y -= value
+			depth -= value
 		}
 	}
-	return x * y
+	return horizontal * depth
 }
 
 func D2p2(input string) int {
-	return 0
+	els := strings.Split(input, "\n")
+	aim := 0
+	horizontal := 0
+	depth := 0
+	for _, el := range els {
+		el = strings.TrimSpace(el)
+		lineParts := strings.Split(el, " ")
+		command := lineParts[0]
+		val := lineParts[1]
+		value, _ := strconv.Atoi(val)
+
+		switch {
+		case command == "forward":
+			horizontal += value
+			depth += aim * value
+		case command == "down":
+			aim += value
+		case command == "up":
+			aim -= value
+		}
+	}
+	return horizontal * depth
 }
